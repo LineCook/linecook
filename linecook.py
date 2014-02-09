@@ -17,8 +17,6 @@ while(1):
         print "Starting cook step " + step
         (cook_json, cook_path), (check_data, check_path) = oven.parse_instruction(step)
         oven.oven_set(cook_path, cook_json)
-        print "check_data: " + check_data
-        print "check_path: " + check_path
         while (oven.oven_get(check_path) != check_data):
             print "Waiting for " + check_path + " == " + check_data
             time.sleep(10)
